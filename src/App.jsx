@@ -137,23 +137,12 @@ const Hero = () => {
   // Resume Download Handler
   const handleDownloadResume = (e) => {
     e.preventDefault();
-
-    // NOTE FOR PRODUCTION: 
-    // In a real deployed React app, you would simply use an anchor tag like:
-    <a href="/Resume Template(3).pdf">Download Resume</a>
-    // and place the PDF in your /public folder. 
-    // 
-    // For this live preview environment, we generate a text blob based on your uploaded resume:
-
-    const blob = new Blob([resumeText], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Soham_Gore_Resume.txt';
+    link.href = '/Resume Template(3).pdf';
+    link.download = 'Soham_Gore_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(url);
   };
 
   return (
