@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Sun, Moon, Menu, X, ArrowUp, Github, Linkedin, Mail, 
-  ExternalLink, Star, MapPin, Send, Terminal, Code2, 
+import {
+  Sun, Moon, Menu, X, ArrowUp, Github, Linkedin, Mail,
+  ExternalLink, Star, MapPin, Send, Terminal, Code2,
   ShieldAlert, Smartphone, Lock, Award, Loader2, Phone, Shield
 } from 'lucide-react';
 
@@ -15,7 +15,7 @@ const useTypewriter = (words, typingSpeed = 100, deletingSpeed = 50, pauseTime =
 
   useEffect(() => {
     const currentWord = words[wordIndex];
-    
+
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         setText(currentWord.substring(0, text.length + 1));
@@ -73,16 +73,15 @@ const Navbar = ({ darkMode, toggleTheme, activeSection }) => {
         <a href="#" className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
           Soham.Gore
         </a>
-        
+
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
-              className={`text-sm font-medium transition-colors hover:text-cyan-400 ${
-                activeSection === item.toLowerCase() ? 'text-cyan-500' : 'text-slate-600 dark:text-slate-300'
-              }`}
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className={`text-sm font-medium transition-colors hover:text-cyan-400 ${activeSection === item.toLowerCase() ? 'text-cyan-500' : 'text-slate-600 dark:text-slate-300'
+                }`}
             >
               {item}
             </a>
@@ -106,7 +105,7 @@ const Navbar = ({ darkMode, toggleTheme, activeSection }) => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -114,9 +113,9 @@ const Navbar = ({ darkMode, toggleTheme, activeSection }) => {
           >
             <div className="flex flex-col px-6 py-4 gap-4">
               {navItems.map((item) => (
-                <a 
-                  key={item} 
-                  href={`#${item.toLowerCase()}`} 
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
                   onClick={() => setIsOpen(false)}
                   className="text-lg font-medium text-slate-700 dark:text-slate-300 hover:text-cyan-400"
                 >
@@ -138,51 +137,13 @@ const Hero = () => {
   // Resume Download Handler
   const handleDownloadResume = (e) => {
     e.preventDefault();
-    
+
     // NOTE FOR PRODUCTION: 
     // In a real deployed React app, you would simply use an anchor tag like:
-    // <a href="/Resume_Soham_Gore.pdf" download>Download Resume</a>
+    <a href="/Resume Template(3).pdf">Download Resume</a>
     // and place the PDF in your /public folder. 
     // 
     // For this live preview environment, we generate a text blob based on your uploaded resume:
-    const resumeText = `SOHAM GORE
-Cyber Security Specialist & Software Developer
-Email: goresoham07@gmail.com | Mobile: 9819883022
-Location: Dombivli (W), Maharashtra, India
-LinkedIn: https://www.linkedin.com/in/soham-gore-24001534a
-
-PROFILE SUMMARY
-A B.Tech Computer Engineering graduate seeking challenging roles in software development and cybersecurity to utilize technical skills and contribute to meaningful projects. Strong foundation in programming and cybersecurity. Experienced in penetration testing and network analysis. Skilled in ethical hacking and secure code practices.
-
-EDUCATION
-• B.Tech Computer Engineering (Honours In Cyber Security And Forensics) - Expected 2026
-  KJ Somaiya School of Engineering | CGPA: 8.8
-• Diploma in Computer Engineering - Completed 2023
-  S.H Jondhale Polytechnic | 85.54%
-• 10th Class - Completed 2020
-  Vidya Niketan School | 86.20%
-
-TECHNICAL SKILLS
-• Cybersecurity Tools: Bettercap, Nmap, Wireshark, Metasploit, Burp Suite, Nessus
-• Core Concept: Ethical hacking, reconnaissance, secure coding, VAPT, bug hunting
-• Languages & Tech: Java, Python, SQL, OpenCV, NumPy, Pillow, Android Dev
-
-INTERNSHIPS
-• EcoTech Services | Cybersecurity Intern (Sep 2025 - Oct 2025)
-  Gained expertise in network reconnaissance and VAPT. Performed system exploitation, password security audits, and web app testing (SQLi, XSS, CSRF).
-• Edunet Foundation | App Dev & Security Intern (Jan 2025 - Feb 2025)
-  Developed a secure steganography project implementing LSB-based image hiding combined with encryption using Python and Android frameworks.
-• Corizo | Penetration Testing Intern (Sep 2024 - Nov 2024)
-  Performed penetration testing on ColdBox framework. Identified vulnerabilities like SQL Injection and XSS.
-• Acmegrade | Network Security Intern (May 2024 - Jul 2024)
-  Worked on network security, simulated MITM attacks, and performed vulnerability analysis using Bettercap, Nmap, and Wireshark.
-
-PROJECTS
-• Family Financial Manager App: Real-time syncing, trip budgeting, location-based cash payment notifications.
-• NeuroAI Mental Health App: AI chatbot with multimodal distress detection.
-• Blood Donation (Life Drop) App: Manages donor data and alerts.
-• Secure Image Steganography: LSB-based data hiding.
-• Renewit: E-waste Management platform.`;
 
     const blob = new Blob([resumeText], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
@@ -202,27 +163,27 @@ PROJECTS
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-900/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-blue-400/20 dark:bg-blue-900/30 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
       </div>
-      
+
       <div className="relative z-10 text-center px-6 max-w-4xl">
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
           <h1 className="text-5xl md:text-7xl font-extrabold mb-4 text-slate-900 dark:text-white">
             Hi, I'm <span className="bg-gradient-to-r from-cyan-500 to-purple-500 bg-clip-text text-transparent">Soham Gore</span>
           </h1>
         </motion.div>
-        
+
         <div className="text-2xl md:text-4xl font-semibold mb-6 h-12 text-slate-700 dark:text-slate-300">
           I am a <span className="text-cyan-600 dark:text-cyan-400">{typewrittenText}</span>
           <span className="animate-pulse">|</span>
         </div>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
           className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
           Building secure, intelligent systems at the intersection of Software Development and Cybersecurity.
         </motion.p>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
@@ -240,17 +201,30 @@ PROJECTS
 
 const About = () => (
   <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
       className="grid md:grid-cols-2 gap-12 items-center"
     >
       <div className="relative group mx-auto md:mx-0 max-w-sm w-full">
         <div className="absolute -inset-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-60 transition duration-500"></div>
         <div className="relative aspect-[4/5] bg-slate-200 dark:bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden border border-slate-300 dark:border-slate-700">
-           <div className="text-center p-6">
-             <Shield size={64} className="mx-auto text-slate-400 dark:text-slate-500 mb-4" />
-             <span className="text-slate-500 dark:text-slate-400 font-medium">Profile Photo</span>
-           </div>
+          {/* Profile Photo Image Tag */}
+          <img
+            src="/profile.jpg"
+            alt="Soham Gore"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            onError={(e) => {
+              // Fallback if image isn't found
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'flex';
+            }}
+          />
+
+          {/* Fallback UI (Shows if profile.jpg is missing) */}
+          <div className="hidden flex-col items-center justify-center text-center p-6 w-full h-full absolute inset-0">
+            <Shield size={64} className="mx-auto text-slate-400 dark:text-slate-500 mb-4" />
+            <span className="text-slate-500 dark:text-slate-400 font-medium">Add profile.jpg<br />to your public folder</span>
+          </div>
         </div>
       </div>
 
@@ -264,7 +238,7 @@ const About = () => (
         <p className="text-slate-600 dark:text-slate-300 text-lg mb-8 leading-relaxed">
           With hands-on experience in vulnerability assessments, penetration testing, network analysis, and full-stack app development, I am equipped to build robust, hardened environments and versatile software solutions ranging from mental health AI chatbots to secure steganography applications.
         </p>
-        
+
         <div className="mb-8 flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium bg-slate-100 dark:bg-slate-900/50 w-fit px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-800">
           <MapPin size={20} className="text-cyan-500" />
           <span>Dombivli (W), Maharashtra, India</span>
@@ -309,7 +283,7 @@ const Skills = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {skillCategories.map((cat, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -346,7 +320,7 @@ const Projects = () => {
       desc: "Deep family-centric collaborative tool featuring culturally relevant categorization, trip budgeting, and comparative analytics. Engineered advanced Android automations to notify users of cash payments upon detecting location changes.",
       tags: ["Android", "App Development", "Location Automations", "Analytics"],
       featured: true,
-      github: "#", demo: "#"
+      github: "https://github.com/Soham07-coder/Horizon-Financial-OS", demo: "#"
     },
     {
       title: "NeuroAI Mental Health App",
@@ -367,14 +341,14 @@ const Projects = () => {
       desc: "An application designed to seamlessly manage blood donor data, schedule appointments, and dispatch critical alerts connecting donors to recipients efficiently.",
       tags: ["App Development", "Java", "SQL"],
       featured: false,
-      github: "#", demo: "#"
+      github: "https://github.com/Soham07-coder/BloodDonate", demo: "#"
     },
     {
       title: "Renewit: E-waste Management",
       desc: "A dedicated platform aimed at promoting environmental sustainability by helping users securely, safely, and responsibly dispose of electronic waste.",
       tags: ["Software Development", "Sustainability"],
       featured: false,
-      github: "#", demo: "#"
+      github: "https://github.com/Soham07-coder/EwasteApp", demo: "#"
     }
   ];
 
@@ -386,10 +360,10 @@ const Projects = () => {
         </h2>
         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">A selection of my recent applications and cybersecurity projects.</p>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -403,10 +377,10 @@ const Projects = () => {
                 <Star size={14} className="fill-white" /> Featured
               </span>
             )}
-            
+
             <h3 className="text-2xl font-bold mb-3 text-slate-800 dark:text-slate-100">{project.title}</h3>
             <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow text-sm leading-relaxed">{project.desc}</p>
-            
+
             <div className="flex flex-wrap gap-2 mb-8">
               {project.tags.map(tag => (
                 <span key={tag} className="text-xs font-semibold px-2.5 py-1 bg-slate-100 dark:bg-slate-900 text-cyan-700 dark:text-cyan-400 rounded-md">
@@ -414,7 +388,7 @@ const Projects = () => {
                 </span>
               ))}
             </div>
-            
+
             <div className="flex items-center gap-6 mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
               <a href={project.github} className="flex items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
                 <Github size={18} /> Code
@@ -505,12 +479,12 @@ const Timeline = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Experience & Education</h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">My professional journey in cybersecurity, software development, and academic background.</p>
         </div>
-        
+
         <div className="relative border-l-2 border-cyan-200 dark:border-cyan-900 md:mx-auto md:border-l-0">
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-purple-500 to-transparent -translate-x-1/2"></div>
 
           {experiences.map((exp, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -518,7 +492,7 @@ const Timeline = () => {
               className={`relative mb-12 md:w-1/2 pl-8 md:pl-0 ${i % 2 === 0 ? 'md:pr-14 md:ml-0 md:text-right' : 'md:pl-14 md:ml-auto'}`}
             >
               <div className={`absolute top-1.5 w-4 h-4 rounded-full ${exp.type === 'education' ? 'bg-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.8)]' : 'bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.8)]'} -left-[9px] ${i % 2 === 0 ? 'md:-right-[9px] md:left-auto' : 'md:-left-[9px]'} border-4 border-white dark:border-slate-950 z-10`}></div>
-              
+
               <div className="bg-white dark:bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group">
                 <span className={`text-sm font-bold ${exp.type === 'education' ? 'text-purple-600 dark:text-purple-400' : 'text-cyan-600 dark:text-cyan-400'} mb-2 block tracking-wider uppercase`}>{exp.date}</span>
                 <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-1">{exp.role}</h3>
@@ -567,25 +541,25 @@ const Contact = () => {
       <div className="grid md:grid-cols-5 gap-12">
         <div className="md:col-span-2 space-y-8">
           <div className="bg-slate-100 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800">
-             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">Contact Info</h3>
-             <div className="space-y-4">
-               <a href="mailto:goresoham07@gmail.com" className="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition">
-                 <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700"><Mail size={18} /></div>
-                 <span className="break-all">goresoham07@gmail.com</span>
-               </a>
-               <a href="tel:+919819883022" className="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition">
-                 <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700"><Phone size={18} /></div>
-                 +91 9819883022
-               </a>
-               <a href="https://www.linkedin.com/in/soham-gore-24001534a" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition">
-                 <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700"><Linkedin size={18} /></div>
-                 LinkedIn Profile
-               </a>
-               <div className="flex items-center gap-4 text-slate-600 dark:text-slate-400 pt-2">
-                 <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700 text-cyan-500"><MapPin size={18} /></div>
-                 Dombivli (W), Maharashtra, India
-               </div>
-             </div>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">Contact Info</h3>
+            <div className="space-y-4">
+              <a href="mailto:goresoham07@gmail.com" className="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition">
+                <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700"><Mail size={18} /></div>
+                <span className="break-all">goresoham07@gmail.com</span>
+              </a>
+              <a href="tel:+919819883022" className="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition">
+                <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700"><Phone size={18} /></div>
+                +91 9819883022
+              </a>
+              <a href="https://www.linkedin.com/in/soham-gore-24001534a" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 transition">
+                <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700"><Linkedin size={18} /></div>
+                LinkedIn Profile
+              </a>
+              <div className="flex items-center gap-4 text-slate-600 dark:text-slate-400 pt-2">
+                <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center border border-slate-200 dark:border-slate-700 text-cyan-500"><MapPin size={18} /></div>
+                Dombivli (W), Maharashtra, India
+              </div>
+            </div>
           </div>
         </div>
 
@@ -594,22 +568,22 @@ const Contact = () => {
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Your Name</label>
-                <input required type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 dark:text-white transition" placeholder="John Doe" />
+                <input required type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 dark:text-white transition" placeholder="John Doe" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Your Email</label>
-                <input required type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 dark:text-white transition" placeholder="john@example.com" />
+                <input required type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 dark:text-white transition" placeholder="john@example.com" />
               </div>
             </div>
             <div className="mb-6">
               <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Subject</label>
-              <input required type="text" value={formData.subject} onChange={(e) => setFormData({...formData, subject: e.target.value})} className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 dark:text-white transition" placeholder="Project Inquiry" />
+              <input required type="text" value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 dark:text-white transition" placeholder="Project Inquiry" />
             </div>
             <div className="mb-6">
               <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Message</label>
-              <textarea required rows="5" value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 dark:text-white transition resize-none" placeholder="Hello, I'd like to talk about..."></textarea>
+              <textarea required rows="5" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-slate-900 dark:text-white transition resize-none" placeholder="Hello, I'd like to talk about..."></textarea>
             </div>
-            
+
             <button disabled={isSubmitting} type="submit" className="w-full py-3.5 px-6 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg transition-all flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
               {isSubmitting ? <Loader2 size={20} className="animate-spin" /> : <><Send size={20} /> Send Message</>}
             </button>
@@ -634,7 +608,7 @@ const Contact = () => {
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [showTopBtn, setShowTopBtn] = useState(false);
-  
+
   const sectionIds = ['hero', 'about', 'skills', 'projects', 'experience', 'contact'];
   const activeSection = useActiveSection(sectionIds);
 
@@ -666,7 +640,7 @@ export default function App() {
   return (
     <div className={`min-h-screen font-sans bg-slate-50 text-slate-900 dark:bg-[#020617] dark:text-slate-50 transition-colors duration-300 overflow-x-hidden selection:bg-cyan-500/30`}>
       <Navbar darkMode={darkMode} toggleTheme={toggleTheme} activeSection={activeSection} />
-      
+
       <main>
         <Hero />
         <About />
